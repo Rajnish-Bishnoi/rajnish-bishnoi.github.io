@@ -1,57 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajnish Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DevOps & Cloud Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #0f162e;
+      --muted: #9aa4b2;
+      --text: #e8ecf1;
+      --primary: #6ee7ff;
+      --accent: #a78bfa;
+      --ok: #34d399;
+      --warn: #fbbf24;
+    }
+    * {box-sizing: border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text); background: radial-gradient(1200px 700px at 10% -10%, rgba(167,139,250,.18), transparent 60%),
+                          radial-gradient(700px 500px at 110% 10%, rgba(110,231,255,.16), transparent 60%),
+                          var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    /* Navbar */
+    .nav{position:sticky; top:0; backdrop-filter:saturate(140%) blur(6px); background:rgba(11,16,32,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:20}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.5px}
+    .logo{width:36px; height:36px; border-radius:12px; background:conic-gradient(from 220deg, var(--primary), var(--accent), var(--ok)); box-shadow:0 0 30px rgba(110,231,255,.25)}
+    .menu{display:flex; gap:18px}
+    .menu a{padding:10px 12px; border-radius:10px; color:var(--muted)}
+    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .cta{padding:10px 14px; background:linear-gradient(90deg, var(--primary), var(--accent)); color:#0b1020; border:none; border-radius:12px; font-weight:700}
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:64px 24px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:var(--muted)}
+    .hero h1{font-size:42px; line-height:1.1; margin:14px 0 12px}
+    .hero p{color:var(--muted); font-size:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .grid{display:grid; gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .kpis{display:flex; gap:16px; flex-wrap:wrap}
+    .kpis .k{flex:1; min-width:160px; padding:14px 16px; border-radius:16px; border:1px dashed rgba(255,255,255,.12)}
+    .k .v{font-size:22px; font-weight:800}
+    .k .l{color:var(--muted); font-size:12px}
+    /* Section */
+    section{padding:34px 24px}
+    h2{font-size:28px; margin:0 0 14px}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.06); font-size:12px}
+    .skills{display:flex; gap:10px; flex-wrap:wrap}
+    .skill{padding:10px 12px; border:1px solid rgba(255,255,255,.1); border-radius:12px; background:rgba(15,22,46,.65)}
+    .project{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center}
+    .project img{width:100%; border-radius:16px; border:1px solid rgba(255,255,255,.08)}
+    .project .meta{display:flex; gap:10px; flex-wrap:wrap}
+    .footer{border-top:1px solid rgba(255,255,255,.08); color:var(--muted); text-align:center; padding:24px}
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .project{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Hi, I'm <span class="highlight">Rajnish</span></h1>
-            <p>Cloud & DevOps Enthusiast | AWS | Azure</p>
-        </div>
-    </header>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><div class="logo"></div> <span>DevOps & Cloud Portfolio</span></div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire Me</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- About -->
-    <section class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>
-                I’m passionate about building cloud infrastructure, automating deployments,
-                and learning new DevOps tools. I work with AWS, Azure, Linux, Terraform, and CI/CD pipelines.
-            </p>
-        </div>
-    </section>
+  <!-- Hero -->
+  <header class="container hero">
+    <div>
+      <span class="badge">🚀 Available for roles: Cloud / DevOps Engineer</span>
+      <h1>Hi, I'm <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Your Name</span> — I build reliable, secure, and scalable infrastructure on AWS & Azure.</h1>
+      <p class="muted">I specialize in Infrastructure as Code (Terraform), container platforms (Docker & Kubernetes), and CI/CD automation. Below are selected projects demonstrating production-grade patterns like blue/green, autoscaling, and observability.</p>
+      <div class="kpis">
+        <div class="k card"><div class="v">15+ </div><div class="l">Cloud Labs</div></div>
+        <div class="k card"><div class="v">3</div><div class="l">Portfolio Projects</div></div>
+        <div class="k card"><div class="v">AWS | Azure</div><div class="l">Primary Clouds</div></div>
+      </div>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><strong>✅ IaC</strong><br><span class="muted">Terraform, CloudFormation (basic)</span></div>
+      <div class="card"><strong>🐳 Containers</strong><br><span class="muted">Docker, Compose, ECR, EKS</span></div>
+      <div class="card"><strong>⚙️ CI/CD</strong><br><span class="muted">GitHub Actions, Jenkins</span></div>
+      <div class="card"><strong>🔐 Security</strong><br><span class="muted">IAM, KMS, WAF, Security Groups</span></div>
+      <div class="card"><strong>📈 Observability</strong><br><span class="muted">CloudWatch, Prometheus (basic)</span></div>
+      <div class="card"><strong>🛰️ Networking</strong><br><span class="muted">VPC, ALB/NLB, Route 53</span></div>
+    </div>
+  </header>
 
-    <!-- Projects -->
-    <section class="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-card">
-                <h3>VPC Peering on AWS</h3>
-                <p>Configured VPC peering between two VPCs with routing and security groups.</p>
-            </div>
-            <div class="project-card">
-                <h3>Application Load Balancer</h3>
-                <p>Deployed ALB with multiple target groups for blue-green deployment.</p>
-            </div>
-        </div>
-    </section>
+  <!-- About -->
+  <section id="about" class="container">
+    <h2>About</h2>
+    <div class="card">
+      <p>I'm a Cloud & DevOps learner focused on automating deployments, improving reliability, and reducing costs. I enjoy turning manual runbooks into reproducible pipelines and codifying infrastructure so teams can move faster with confidence.</p>
+      <p class="muted">Open to internships and junior roles. I learn quickly and document everything thoroughly.</p>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section class="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:rajnish@example.com">rajnish@example.com</a></p>
-        </div>
-    </section>
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill">AWS (EC2, S3, VPC, RDS, IAM, CloudFront)</span>
+      <span class="skill">Azure (VMs, VNets, Storage, ACR)</span>
+      <span class="skill">Linux & Bash</span>
+      <span class="skill">Git & GitHub</span>
+      <span class="skill">Jenkins / GitHub Actions</span>
+      <span class="skill">Docker & Kubernetes</span>
+      <span class="skill">Terraform & HCL</span>
+      <span class="skill">CloudWatch & Logging</span>
+      <span class="skill">Nginx/Apache</span>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Rajnish | Built with ❤️</p>
-    </footer>
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+
+    <div class="card project" style="margin-bottom:16px">
+      <img alt="Project 1 diagram" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" />
+      <div>
+        <h3>01 · 3‑Tier on AWS with ALB + Auto Scaling + RDS</h3>
+        <p class="muted">Highly available web tier behind an Application Load Balancer, Auto Scaling Group across 2 AZs, and a Multi‑AZ RDS backend. Provisioned with Terraform, monitored via CloudWatch alarms and structured logs.</p>
+        <div class="meta">
+          <span class="pill">AWS</span>
+          <span class="pill">Terraform</span>
+          <span class="pill">CloudWatch</span>
+        </div>
+        <p style="margin-top:10px">
+          <a class="pill" href="#" onclick="alert('Add your GitHub repo URL here')">GitHub Repo</a>
+          <a class="pill" href="#" onclick="alert('Add your live demo URL here')">Live Demo</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="card project" style="margin-bottom:16px">
+      <img alt="Project 2 diagram" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" />
+      <div>
+        <h3>02 · CI/CD to EKS (Docker → ECR → Kubernetes)</h3>
+        <p class="muted">End‑to‑end pipeline: Git push triggers build, test, dockerize, push to ECR, and rolling update on EKS via GitHub Actions. Canary rollout with health checks and auto‑rollback signals.</p>
+        <div class="meta">
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">ECR</span>
+          <span class="pill">EKS</span>
+        </div>
+        <p style="margin-top:10px">
+          <a class="pill" href="#" onclick="alert('Add your pipeline repo URL here')">Pipeline</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="card project">
+      <img alt="Project 3 diagram" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop" />
+      <div>
+        <h3>03 · Serverless API (API Gateway + Lambda + DynamoDB)</h3>
+        <p class="muted">Pay‑per‑use, zero‑admin backend. IaC templates for environments, IAM least‑privilege, and S3 static hosting for the frontend. Includes structured logs and alarms.</p>
+        <div class="meta">
+          <span class="pill">Lambda</span>
+          <span class="pill">API Gateway</span>
+          <span class="pill">DynamoDB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <div class="grid grid-2">
+      <form class="card" onsubmit="event.preventDefault(); alert('Replace with your form handler or mailto link!')">
+        <label>Name<br><input required placeholder="Your Name" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></label>
+        <label>Email<br><input type="email" required placeholder="you@example.com" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></label>
+        <label>Message<br><textarea rows="5" placeholder="Tell me about your project…" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></textarea></label>
+        <button class="cta" type="submit">Send</button>
+      </form>
+      <div class="card">
+        <h3>Links</h3>
+        <p class="muted">Update these with your details:</p>
+        <ul>
+          <li>📧 Email: <a href="mailto:you@example.com">you@example.com</a></li>
+          <li>💼 LinkedIn: <a href="#" onclick="alert('Add your LinkedIn URL')">Add link</a></li>
+          <li>🐙 GitHub: <a href="#" onclick="alert('Add your GitHub URL')">Add link</a></li>
+          <li>📄 Resume: <a href="#" onclick="alert('Link your PDF resume')">Download</a></li>
+        </ul>
+        <p class="muted" style="margin-top:10px">Location: Open to remote · Timezone: IST</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">© <span id="y"></span> Your Name · Built with HTML & CSS</footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
