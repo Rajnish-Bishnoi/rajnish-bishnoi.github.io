@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Tier on AWS with ALB + Auto Scaling + RDS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #0073bb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: #0073bb;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #eee;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>3-Tier AWS Architecture</h1>
+        <p>Application Load Balancer • Auto Scaling • RDS</p>
+    </header>
+    <main>
+        <h2>Overview</h2>
+        <p>This project demonstrates a **3-tier architecture** on AWS, using an Application Load Balancer for traffic distribution, an Auto Scaling group for the application layer, and Amazon RDS for the database layer.</p>
+
+        <h2>Architecture Diagram</h2>
+        <img src="https://via.placeholder.com/800x400.png?text=3-Tier+AWS+Architecture+Diagram" alt="AWS 3-Tier Diagram">
+
+        <h2>Key Components</h2>
+        <ul>
+            <li><strong>Application Load Balancer (ALB):</strong> Distributes incoming traffic across multiple EC2 instances.</li>
+            <li><strong>Auto Scaling Group:</strong> Automatically adjusts the number of EC2 instances based on demand.</li>
+            <li><strong>Amazon RDS:</strong> Managed relational database service for persistent data storage.</li>
+        </ul>
+
+        <h2>Benefits</h2>
+        <ul>
+            <li>High availability</li>
+            <li>Scalability on demand</li>
+            <li>Fault tolerance</li>
+        </ul>
+
+        <h2>Deployment Steps</h2>
+        <ol>
+            <li>Create VPC, subnets, and security groups.</li>
+            <li>Deploy ALB in public subnets.</li>
+            <li>Configure Auto Scaling group in private subnets.</li>
+            <li>Launch RDS instance in database subnets.</li>
+            <li>Test application access through ALB endpoint.</li>
+        </ol>
+    </main>
+    <footer>
+        <p>© 2025 Rajnish | AWS Cloud Projects</p>
+    </footer>
+</body>
+</html>
