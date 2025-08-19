@@ -3,213 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DevOps & Cloud Portfolio</title>
+  <title>Rajnish Kumar — Cloud & DevOps Engineer</title>
+  <meta name="description" content="Rajnish Kumar — Cloud & DevOps Engineer. AWS, Azure, Kubernetes, Terraform, CI/CD, DevSecOps." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config tweaks (optional)
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          backgroundImage: {
+            grid:
+              "radial-gradient(ellipse at top left, rgba(59,130,246,.12), transparent 40%), radial-gradient(ellipse at bottom right, rgba(99,102,241,.12), transparent 40%)",
+          },
+        },
+      },
+      darkMode: "class",
+    };
+  </script>
   <style>
-    :root{
-      --bg: #0b1020;
-      --panel: #0f162e;
-      --muted: #9aa4b2;
-      --text: #e8ecf1;
-      --primary: #6ee7ff;
-      --accent: #a78bfa;
-      --ok: #34d399;
-      --warn: #fbbf24;
-    }
-    * {box-sizing: border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:var(--text); background: radial-gradient(1200px 700px at 10% -10%, rgba(167,139,250,.18), transparent 60%),
-                          radial-gradient(700px 500px at 110% 10%, rgba(110,231,255,.16), transparent 60%),
-                          var(--bg);
-    }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:24px}
-    /* Navbar */
-    .nav{position:sticky; top:0; backdrop-filter:saturate(140%) blur(6px); background:rgba(11,16,32,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:20}
-    .nav-inner{display:flex; align-items:center; justify-content:space-between}
-    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.5px}
-    .logo{width:36px; height:36px; border-radius:12px; background:conic-gradient(from 220deg, var(--primary), var(--accent), var(--ok)); box-shadow:0 0 30px rgba(110,231,255,.25)}
-    .menu{display:flex; gap:18px}
-    .menu a{padding:10px 12px; border-radius:10px; color:var(--muted)}
-    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .cta{padding:10px 14px; background:linear-gradient(90deg, var(--primary), var(--accent)); color:#0b1020; border:none; border-radius:12px; font-weight:700}
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:64px 24px}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:var(--muted)}
-    .hero h1{font-size:42px; line-height:1.1; margin:14px 0 12px}
-    .hero p{color:var(--muted); font-size:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .grid{display:grid; gap:18px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .kpis{display:flex; gap:16px; flex-wrap:wrap}
-    .kpis .k{flex:1; min-width:160px; padding:14px 16px; border-radius:16px; border:1px dashed rgba(255,255,255,.12)}
-    .k .v{font-size:22px; font-weight:800}
-    .k .l{color:var(--muted); font-size:12px}
-    /* Section */
-    section{padding:34px 24px}
-    h2{font-size:28px; margin:0 0 14px}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.06); font-size:12px}
-    .skills{display:flex; gap:10px; flex-wrap:wrap}
-    .skill{padding:10px 12px; border:1px solid rgba(255,255,255,.1); border-radius:12px; background:rgba(15,22,46,.65)}
-    .project{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center}
-    .project img{width:100%; border-radius:16px; border:1px solid rgba(255,255,255,.08)}
-    .project .meta{display:flex; gap:10px; flex-wrap:wrap}
-    .footer{border-top:1px solid rgba(255,255,255,.08); color:var(--muted); text-align:center; padding:24px}
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .project{grid-template-columns:1fr}
+    @media print {
+      header, footer, .no-print { display:none !important; }
+      section { break-inside: avoid; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
+  <script>
+    // Theme persistence
+    function setTheme(mode){
+      const root = document.documentElement;
+      if(mode === 'dark'){ root.classList.add('dark'); localStorage.setItem('theme','dark'); }
+      else { root.classList.remove('dark'); localStorage.setItem('theme','light'); }
+    }
+    (function(){
+      const saved = localStorage.getItem('theme');
+      if(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
-<body>
-  <!-- Navbar -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand"><div class="logo"></div> <span>DevOps & Cloud Portfolio</span></div>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#contact">Hire Me</a>
+<body class="bg-grid min-h-screen text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-40 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-neutral-900/80 dark:supports-[backdrop-filter]:bg-neutral-900/60">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#home" class="font-semibold tracking-tight">Rajnish.dev</a>
+      <nav class="hidden items-center gap-6 text-sm md:flex">
+        <a href="#about" class="hover:opacity-80">About</a>
+        <a href="#skills" class="hover:opacity-80">Skills</a>
+        <a href="#experience" class="hover:opacity-80">Experience</a>
+        <a href="#education" class="hover:opacity-80">Education</a>
+        <a href="#awards" class="hover:opacity-80">Awards</a>
+        <a href="#contact" class="hover:opacity-80">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button onclick="setTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark')" class="rounded-xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-label="Toggle theme">🌙</button>
+        <button onclick="window.print()" class="no-print hidden rounded-xl border px-3 py-1 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 sm:inline-flex">🖨️ Print / Save PDF</button>
       </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="container hero">
-    <div>
-      <span class="badge">🚀 Available for roles: Cloud / DevOps Engineer</span>
-      <h1>Hi, I'm <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Your Name</span> — I build reliable, secure, and scalable infrastructure on AWS & Azure.</h1>
-      <p class="muted">I specialize in Infrastructure as Code (Terraform), container platforms (Docker & Kubernetes), and CI/CD automation. Below are selected projects demonstrating production-grade patterns like blue/green, autoscaling, and observability.</p>
-      <div class="kpis">
-        <div class="k card"><div class="v">15+ </div><div class="l">Cloud Labs</div></div>
-        <div class="k card"><div class="v">3</div><div class="l">Portfolio Projects</div></div>
-        <div class="k card"><div class="v">AWS | Azure</div><div class="l">Primary Clouds</div></div>
-      </div>
-    </div>
-    <div class="grid grid-3">
-      <div class="card"><strong>✅ IaC</strong><br><span class="muted">Terraform, CloudFormation (basic)</span></div>
-      <div class="card"><strong>🐳 Containers</strong><br><span class="muted">Docker, Compose, ECR, EKS</span></div>
-      <div class="card"><strong>⚙️ CI/CD</strong><br><span class="muted">GitHub Actions, Jenkins</span></div>
-      <div class="card"><strong>🔐 Security</strong><br><span class="muted">IAM, KMS, WAF, Security Groups</span></div>
-      <div class="card"><strong>📈 Observability</strong><br><span class="muted">CloudWatch, Prometheus (basic)</span></div>
-      <div class="card"><strong>🛰️ Networking</strong><br><span class="muted">VPC, ALB/NLB, Route 53</span></div>
     </div>
   </header>
 
-  <!-- About -->
-  <section id="about" class="container">
-    <h2>About</h2>
-    <div class="card">
-      <p>I'm a Cloud & DevOps learner focused on automating deployments, improving reliability, and reducing costs. I enjoy turning manual runbooks into reproducible pipelines and codifying infrastructure so teams can move faster with confidence.</p>
-      <p class="muted">Open to internships and junior roles. I learn quickly and document everything thoroughly.</p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="container">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span class="skill">AWS (EC2, S3, VPC, RDS, IAM, CloudFront)</span>
-      <span class="skill">Azure (VMs, VNets, Storage, ACR)</span>
-      <span class="skill">Linux & Bash</span>
-      <span class="skill">Git & GitHub</span>
-      <span class="skill">Jenkins / GitHub Actions</span>
-      <span class="skill">Docker & Kubernetes</span>
-      <span class="skill">Terraform & HCL</span>
-      <span class="skill">CloudWatch & Logging</span>
-      <span class="skill">Nginx/Apache</span>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="container">
-    <h2>Projects</h2>
-
-    <div class="card project" style="margin-bottom:16px">
-      <img alt="Project 1 diagram" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" />
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-8 pt-12 md:grid-cols-2">
       <div>
-<h3><a href="3tier-aws.html">01 · 3-Tier on AWS with ALB + Auto Scaling + RDS</a></h3>
-        <p class="muted">Highly available web tier behind an Application Load Balancer, Auto Scaling Group across 2 AZs, and a Multi‑AZ RDS backend. Provisioned with Terraform, monitored via CloudWatch alarms and structured logs.</p>
-        <div class="meta">
-          <span class="pill">AWS</span>
-          <span class="pill">Terraform</span>
-          <span class="pill">CloudWatch</span>
-        </div>
-        <p style="margin-top:10px">
-          <a class="pill" href="#" onclick="alert('Add your GitHub repo URL here')">GitHub Repo</a>
-          <a class="pill" href="#" onclick="alert('Add your live demo URL here')">Live Demo</a>
+        <h1 class="text-3xl font-bold tracking-tight md:text-5xl">Rajnish Kumar</h1>
+        <p class="mt-2 text-lg font-medium text-blue-600 dark:text-blue-400 md:text-xl">Cloud & DevOps Engineer</p>
+        <p class="mt-4 max-w-prose text-base leading-7">
+          Detail‑oriented Cloud & DevOps Engineer with 4+ years of experience across AWS and Azure. Focused on IaC, CI/CD, container orchestration, monitoring and cost optimization for highly available, scalable systems.
         </p>
-      </div>
-    </div>
-
-    <div class="card project" style="margin-bottom:16px">
-      <img alt="Project 2 diagram" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" />
-      <div>
-        <h3>02 · CI/CD to EKS (Docker → ECR → Kubernetes)</h3>
-        <p class="muted">End‑to‑end pipeline: Git push triggers build, test, dockerize, push to ECR, and rolling update on EKS via GitHub Actions. Canary rollout with health checks and auto‑rollback signals.</p>
-        <div class="meta">
-          <span class="pill">GitHub Actions</span>
-          <span class="pill">ECR</span>
-          <span class="pill">EKS</span>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="mailto:Heyrajnishh@gmail.com" class="rounded-xl bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">✉️ Email</a>
+          <a href="tel:+919768429000" class="rounded-xl border px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800">📞 Call</a>
+          <a href="https://linkedin.com/in/rajnish-kumar-15a23b16a" target="_blank" class="rounded-xl border px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800">in LinkedIn</a>
+          <button onclick="window.print()" class="rounded-xl px-4 py-2 hover:bg-neutral-100 dark:hover:bg-neutral-800">⬇️ Download CV</button>
         </div>
-        <p style="margin-top:10px">
-          <a class="pill" href="#" onclick="alert('Add your pipeline repo URL here')">Pipeline</a>
-        </p>
+        <div class="mt-6 flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300">
+          📍 Punjab, India
+        </div>
       </div>
-    </div>
-
-    <div class="card project">
-      <img alt="Project 3 diagram" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop" />
-      <div>
-        <h3>03 · Serverless API (API Gateway + Lambda + DynamoDB)</h3>
-        <p class="muted">Pay‑per‑use, zero‑admin backend. IaC templates for environments, IAM least‑privilege, and S3 static hosting for the frontend. Includes structured logs and alarms.</p>
-        <div class="meta">
-          <span class="pill">Lambda</span>
-          <span class="pill">API Gateway</span>
-          <span class="pill">DynamoDB</span>
+      <div class="relative">
+        <div class="backdrop-blur rounded-3xl border bg-white/70 p-6 shadow-sm dark:bg-neutral-900/70">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">AWS</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">Azure</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">Kubernetes</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">Terraform</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">Jenkins</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+            <div class="rounded-2xl border px-4 py-6 text-center text-sm"><div class="font-semibold">Git</div><div class="mt-1 text-xs opacity-70">Expertise</div></div>
+          </div>
+          <div class="mt-4 flex items-center gap-2 text-sm">⭐ 4+ years delivering scalable systems</div>
         </div>
       </div>
     </div>
+    <div class="flex justify-center pb-6"><a href="#about" class="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100">⬇️ Scroll</a></div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <div class="grid grid-2">
-      <form class="card" onsubmit="event.preventDefault(); alert('Replace with your form handler or mailto link!')">
-        <label>Name<br><input required placeholder="Your Name" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></label>
-        <label>Email<br><input type="email" required placeholder="you@example.com" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></label>
-        <label>Message<br><textarea rows="5" placeholder="Tell me about your project…" style="width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0b1226; color:var(--text); margin:6px 0 12px"></textarea></label>
-        <button class="cta" type="submit">Send</button>
-      </form>
-      <div class="card">
-        <h3>Links</h3>
-        <p class="muted">Update these with your details:</p>
-        <ul>
-          <li>📧 Email: <a href="mailto:you@example.com">you@example.com</a></li>
-          <li>💼 LinkedIn: <a href="#" onclick="alert('Add your LinkedIn URL')">Add link</a></li>
-          <li>🐙 GitHub: <a href="#" onclick="alert('Add your GitHub URL')">Add link</a></li>
-          <li>📄 Resume: <a href="#" onclick="alert('Link your PDF resume')">Download</a></li>
-        </ul>
-        <p class="muted" style="margin-top:10px">Location: Open to remote · Timezone: IST</p>
+  <main class="mx-auto max-w-6xl space-y-10 px-4 pb-20 md:space-y-14">
+    <!-- About -->
+    <section id="about" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">🚀</div>
+          <h2 class="text-xl md:text-2xl font-semibold">About</h2>
+        </div>
+        <div class="px-6 py-5">
+          <p class="leading-7 text-neutral-700 dark:text-neutral-300">
+            I design, automate and operate reliable cloud platforms. My toolkit includes AWS, Azure, Kubernetes and modern CI/CD. I enjoy turning manual runbooks into idempotent pipelines and helping teams ship faster with guardrails around security, cost and observability.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">© <span id="y"></span> Your Name · Built with HTML & CSS</footer>
+    <!-- Skills -->
+    <section id="skills" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">⭐</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Key Skills</h2>
+        </div>
+        <div class="px-6 py-5">
+          <div class="flex flex-wrap gap-2">
+            <!-- Pills -->
+            <span class="rounded-full border px-3 py-1 text-sm">AWS (EC2, S3, Lambda, RDS, CloudWatch)</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Microsoft Azure</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Azure DevOps</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Docker & Kubernetes</span>
+            <span class="rounded-full border px-3 py-1 text-sm">CI/CD Pipelines</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Infrastructure as Code</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Terraform</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Jenkins</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Git & GitHub</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Linux Administration</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Monitoring & Logging</span>
+            <span class="rounded-full border px-3 py-1 text-sm">PowerShell & Bash</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Ansible</span>
+            <span class="rounded-full border px-3 py-1 text-sm">CloudFormation</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Azure Resource Manager</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">💼</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Professional Experience</h2>
+        </div>
+        <div class="px-6 py-5">
+          <div class="relative border-s pl-6">
+            <!-- Job 1 -->
+            <div class="relative mb-8 last:mb-0">
+              <div class="absolute -left-3 top-1.5 h-6 w-6 rounded-full border bg-white dark:bg-neutral-950"></div>
+              <div class="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+                <h3 class="text-lg font-semibold md:text-xl">Cloud & DevOps Engineer</h3>
+                <div class="text-sm opacity-80">Apr 2021 – Present</div>
+              </div>
+              <div class="text-sm opacity-80">Eterno Infotech Pvt. Ltd. (Dailyhunt) • Bengaluru, India</div>
+              <ul class="mt-3 list-disc space-y-1 pl-5 text-[15px]">
+                <li>Designed and operated scalable, HA cloud infra on AWS & Azure for high‑traffic apps.</li>
+                <li>Built CI/CD with Azure DevOps & Jenkins, reducing deployment time by ~60%.</li>
+                <li>Automated infra with Terraform & CloudFormation; standardized reusable modules.</li>
+                <li>Managed Docker/Kubernetes clusters; implemented robust rollout/rollback strategies.</li>
+                <li>Implemented monitoring & logging with CloudWatch, Azure Monitor and ELK.</li>
+                <li>Optimized cost via right‑sizing, auto‑scaling and lifecycle policies (40% reduction).</li>
+                <li>Drove DevSecOps practices incl. secrets, IAM least‑privilege and policy guardrails.</li>
+                <li>Awarded ‘Best Performer – 2024’ for 99.9% uptime and major cost savings.</li>
+              </ul>
+            </div>
+            <!-- Job 2 -->
+            <div class="relative mb-0">
+              <div class="absolute -left-3 top-1.5 h-6 w-6 rounded-full border bg-white dark:bg-neutral-950"></div>
+              <div class="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+                <h3 class="text-lg font-semibold md:text-xl">Junior DevOps Engineer</h3>
+                <div class="text-sm opacity-80">2019 – 2021</div>
+              </div>
+              <div class="text-sm opacity-80">Tech Solutions Pvt. Ltd. • Fazilka, Punjab</div>
+              <ul class="mt-3 list-disc space-y-1 pl-5 text-[15px]">
+                <li>Managed Linux servers; automated routine ops with Bash/PowerShell.</li>
+                <li>Assisted in setting up CI/CD and Git workflows.</li>
+                <li>Supported migration initiatives from on‑prem to AWS/Azure.</li>
+                <li>Implemented backup, DR and basic observability dashboards.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">🎓</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Education</h2>
+        </div>
+        <div class="grid gap-4 px-6 py-5 md:grid-cols-3">
+          <div class="rounded-2xl border p-4">
+            <div class="text-sm opacity-80">2017 – 2020</div>
+            <div class="mt-1 font-semibold">Bachelor of Computer Applications (BCA)</div>
+            <div class="text-sm opacity-80">Shekhawati Group of Institutions, PDUSU, Sikar</div>
+          </div>
+          <div class="rounded-2xl border p-4">
+            <div class="text-sm opacity-80">2014</div>
+            <div class="mt-1 font-semibold">Senior Secondary (XII)</div>
+            <div class="text-sm opacity-80">Modern Public High School, Abohar, PSEB</div>
+          </div>
+          <div class="rounded-2xl border p-4">
+            <div class="text-sm opacity-80">2012</div>
+            <div class="mt-1 font-semibold">Secondary (X)</div>
+            <div class="text-sm opacity-80">Govt. Senior Secondary School, Bhagu (Fazilka), PSEB</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Awards -->
+    <section id="awards" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">🏆</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Certifications & Awards</h2>
+        </div>
+        <div class="grid gap-4 px-6 py-5 md:grid-cols-2">
+          <div class="rounded-2xl border p-4">
+            <h3 class="mb-2 text-lg font-semibold">Certifications</h3>
+            <ul class="list-disc space-y-1 pl-5 text-[15px]">
+              <li>AWS Certified Solutions Architect – Associate</li>
+              <li>Microsoft Azure Fundamentals (AZ‑900)</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border p-4">
+            <h3 class="mb-2 text-lg font-semibold">Awards</h3>
+            <ul class="list-disc space-y-1 pl-5 text-[15px]">
+              <li><span class="font-medium">Best Performer – Dailyhunt</span> (2024) — Recognized for cloud optimization and cost reduction.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">🌐</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Languages</h2>
+        </div>
+        <div class="px-6 py-5">
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full border px-3 py-1 text-sm">Hindi: Native</span>
+            <span class="rounded-full border px-3 py-1 text-sm">Punjabi: Fluent</span>
+            <span class="rounded-full border px-3 py-1 text-sm">English: Professional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-24">
+      <div class="rounded-2xl border shadow-sm">
+        <div class="flex items-center gap-2 border-b px-6 py-4">
+          <div class="rounded-xl bg-blue-600/10 p-2">📮</div>
+          <h2 class="text-xl md:text-2xl font-semibold">Get in touch</h2>
+        </div>
+        <div class="grid gap-4 px-6 py-5 text-sm md:grid-cols-3">
+          <a class="flex items-center gap-3 rounded-2xl border p-4 hover:bg-blue-50 dark:hover:bg-neutral-900" href="mailto:Heyrajnishh@gmail.com" target="_blank" rel="noreferrer">✉️ Heyrajnishh@gmail.com <span class="ml-auto opacity-70">↗</span></a>
+          <a class="flex items-center gap-3 rounded-2xl border p-4 hover:bg-blue-50 dark:hover:bg-neutral-900" href="tel:+919768429000">📞 +91-9768429000 <span class="ml-auto opacity-70">↗</span></a>
+          <a class="flex items-center gap-3 rounded-2xl border p-4 hover:bg-blue-50 dark:hover:bg-neutral-900" href="https://linkedin.com/in/rajnish-kumar-15a23b16a" target="_blank" rel="noreferrer">in LinkedIn <span class="ml-auto opacity-70">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t py-8 text-sm">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 md:flex-row">
+      <div>© <span id="year"></span> Rajnish Kumar. All rights reserved.</div>
+      <div class="opacity-70">Built with HTML • Tailwind</div>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
